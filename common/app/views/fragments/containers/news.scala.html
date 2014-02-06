@@ -26,7 +26,12 @@
                     </span>
                 </h2>
                 <div class="container__body container--rolled-up-hide js-container-append-button">
-                    @fragments.collections.rowPattern(config, items, style, containerIndex)
+                    @items.slice(0, 1).map{ trail =>
+                        <div class="collection-wrapper">
+                            @fragments.items.baguette(trail, 0)
+                        </div>
+                    }
+                    @fragments.collections.rowPattern(config, items.tail, style, containerIndex)
                 </div>
             </section>
         }
