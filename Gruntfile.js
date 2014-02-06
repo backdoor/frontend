@@ -477,7 +477,6 @@ module.exports = function (grunt) {
         env: {
             casperjs: {
                 ENVIRONMENT : (process.env.ENVIRONMENT) ? process.env.ENVIRONMENT : (isDev) ? "dev" : "code",
-                PHANTOMJS_EXECUTABLE : "node_modules/casperjs/node_modules/.bin/phantomjs",
                 extend: {
                     PATH: {
                         value: 'node_modules/.bin',
@@ -490,12 +489,13 @@ module.exports = function (grunt) {
         casperjsLogFile: 'results.xml',
         casperjs: {
             options: {
-                // Pre-prod environments have self-signed SSL certs
-                ignoreSslErrors: 'yes',
-                includes: ['integration-tests/casper/tests/shared.js'],
-                xunit: 'integration-tests/target/casper/<%= casperjsLogFile %>',
-                loglevel: 'debug',
-                direct: true
+                casperjsOptions: [
+                    '--verbose',
+                    '--log-level=warning',
+                    '--ignore-ssl-errors=yes',
+                    '--includes=integration-tests/casper/tests/shared.js',
+                    '--xunit=integration-tests/target/casper/<%= casperjsLogFile %>'
+                ]
             },
             screenshot: {
                 src: ['tools/screenshots/screenshot.js']
