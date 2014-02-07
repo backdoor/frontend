@@ -18,12 +18,12 @@
         & + & {
             border-left: 1px solid $c-neutral5;
 
-            .svg & {
-                .supporting__action {
-                    @include rem((
+            .supporting__action {
+                @include rem((
                         padding-left: $gs-gutter/4
-                    ));
-                }
+                ));
+            }
+            .svg & {
                 .action--has-icon {
                     @include rem((
                         padding-left: $action-icon-width + ($action-icon-rightspace * 2)
