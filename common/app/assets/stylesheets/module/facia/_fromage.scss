@@ -7,9 +7,6 @@
  * - supporting links
  */
 
-// Enhance contrast of grey text on light grey background
-$c-neutral2-contrasted: darken($c-neutral2, 3%);
-
 
 /* Wrapper
    ===========================================================================*/
@@ -198,57 +195,6 @@ $c-neutral2-contrasted: darken($c-neutral2, 3%);
     i {
         left: 0;
     }
-}
-
-
-/* Support
-   ===========================================================================*/
-
-.fromage__support {
-    clear: both;
-}
-.fromage__support-list {
-    margin: 0;
-    list-style-type: none;
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-}
-.fromage__support__item {
-    border-top: 1px solid $c-neutral5;
-
-    @include mq(tablet) {
-        display: table-cell;
-
-        & + & {
-            border-left: 1px solid $c-neutral5;
-
-            .svg & {
-                .fromage__support__action {
-                    @include rem((
-                        padding-left: $gs-gutter/4
-                    ));
-                }
-                .action--has-icon {
-                    @include rem((
-                        padding-left: $action-icon-width + ($action-icon-rightspace * 2)
-                    ));
-                }
-            }
-        }
-    }
-}
-.fromage__support__action {
-    display: block;
-    margin: 0;
-    @include fs-headline(1);
-    color: $c-neutral2-contrasted;
-    @include rem((
-        padding-top: $gs-baseline/3,
-        padding-bottom: nth(nth($fs-headlines, 1), 2),
-        padding-right: $gs-gutter/4
-    ));
 }
 
 
@@ -445,11 +391,11 @@ $c-neutral2-contrasted: darken($c-neutral2, 3%);
 
 .fromage--volume-1,
 .fromage--volume-2 {
-    .fromage__support__item {
+    .supporting__item {
         border-top-color: #ffffff;
 
         @include mq(tablet) {
-            + .fromage__support__item {
+            + .supporting__item {
                 border-left-color: #ffffff;
             }
         }
@@ -497,7 +443,7 @@ $c-neutral2-contrasted: darken($c-neutral2, 3%);
             }
         }
     }
-    .fromage__support__action {
+    .supporting__action {
         @include rem((
             padding-left: $gs-gutter/4,
             padding-right: $gs-gutter/4
@@ -507,11 +453,11 @@ $c-neutral2-contrasted: darken($c-neutral2, 3%);
 .fromage--volume-1 {
     &,
     .fromage__container,
-    .fromage__support {
+    .supporting {
         background: $c-neutral7;
     }
     .fromage__standfirst,
-    .fromage__support__action {
+    .supporting__action {
         color: $c-neutral2-contrasted;
     }
 }
@@ -527,7 +473,7 @@ $c-neutral2-contrasted: darken($c-neutral2, 3%);
     .fromage__title,
     .fromage__standfirst,
     .fromage__meta,
-    .fromage__support__action,
+    .supporting__action,
     .fromage__link {
         color: #ffffff;
     }
@@ -539,7 +485,7 @@ $c-neutral2-contrasted: darken($c-neutral2, 3%);
             }
         }
     }
-    .fromage__support {
+    .supporting {
         background-color: lighten($c-brandBlue, 7%);
     }
 }
